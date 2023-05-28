@@ -9,26 +9,22 @@ export default function NavBar({ setCity }) {
     const [searchText, setSearchText] = useState('');
     const [suggetions, setSuggetions] = useState([]);
 
+    console.log(import.meta.env);
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '0448fa6ed5mshf6ec8d08549b24ap1d827ajsnb78fc4f72afb',
-            'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+            'X-RapidAPI-Key': import.meta.env.VITE_WEATHER_API_KEY,
+            'X-RapidAPI-Host': import.meta.env.VITE_WEATHER_API_HOST
         }
     };
 
     let inputRef = useRef(null)
-
-
-    // inputRef.current.parentNode.nextSibling.firstChild.focus({ focusVisible: true });
-    console.log(document.activeElement)
 
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'ArrowDown') {
                 if (inputRef.current.parentNode.nextSibling !== null) {
                     e.preventDefault();
-                    console.dir(inputRef.current.parentNode.nextSibling.firstChild.firstChild);
                     inputRef.current.parentNode.nextSibling.firstChild.firstChild.focus({ focusVisible: true });
                 }
             }
