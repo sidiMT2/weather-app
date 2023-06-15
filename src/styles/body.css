@@ -8,7 +8,7 @@
 
 .day-weather {
     display: flex;
-    min-width: 150px;
+    min-width: 250px;
     text-align: center;
     flex-direction: column;
     justify-content: center;
@@ -18,11 +18,46 @@
     background-color: #242424;
     color: rgba(255, 255, 255, 0.87);
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease-in;
+}
 
+.weather-main {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+.weather-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.temp-interval {
+    margin-right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+.min-temp {
+    color: brown;
+}
+
+.max-temp {
+    color: green;
 }
 
 .city-info {
+    width: 100%;
     text-align: center;
+
 }
 
 .location-icon {
@@ -34,4 +69,9 @@
 
 .location-icon path {
     fill: white;
+}
+
+
+.day-weather:hover {
+    transform: scale(1.1);
 }

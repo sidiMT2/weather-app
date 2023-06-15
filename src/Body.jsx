@@ -5,24 +5,28 @@ export default function Body({ city }) {
     return (
         <div className="main-content">
             <CityInfo location={city.location} />
-            <ForecastDiv forecastday={city.forecast.forecastday} />
+            <ForecastDiv forecastday={city.forecast.forecastday} location={city.location} />
         </div>
     )
 }
 
 
-function ForecastDiv({ forecastday }) {
+export function ForecastDiv({ forecastday, location }) {
     return (
         < div className="forecast-info">
             {forecastday.map((forecastday, index) => {
-                return <DayWeather key={index} forecastday={forecastday} />
+                return <DayWeather
+                    key={index}
+                    forecastday={forecastday}
+                    index={index + 1}
+                    location={location} />
             })
             }
         </div>
     )
 }
 
-function CityInfo({ location }) {
+export function CityInfo({ location }) {
     return (
         <div className="city-info">
             <p>

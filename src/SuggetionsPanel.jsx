@@ -11,9 +11,6 @@ export default function SuggetionsPanel({ suggetions, setSearchText, inputRef })
     if (e.key === 'Enter') {
       setSearchText(e.target.firstElementChild.innerText)
       inputRef.current.focus()
-      console.dir(inputRef.current.parentNode)
-      // inputRef.current.parentNode.submit()
-
     }
   }
 
@@ -45,6 +42,9 @@ export default function SuggetionsPanel({ suggetions, setSearchText, inputRef })
     if (focusLi > 0) {
       document.querySelector('.suggetions-div ul li:nth-child(' + focusLi + ')').focus()
     }
+    else {
+      inputRef.current.focus()
+    }
   }, [focusLi])
 
 
@@ -52,7 +52,7 @@ export default function SuggetionsPanel({ suggetions, setSearchText, inputRef })
     <div className={className} >
       <ul >
         {suggetions.map((suggetion, index) => {
-          return <li onKeyDown={handleEnter} tabIndex={index + 1} key={index}><span> {suggetion.name}</span> - {suggetion.country}</li>
+          return <li onKeyDown={handleEnter} tabIndex={index} key={index}><span> {suggetion.name}</span> - {suggetion.country}</li>
         })}
       </ul>
     </div>
